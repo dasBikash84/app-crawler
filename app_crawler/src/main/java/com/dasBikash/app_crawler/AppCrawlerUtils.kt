@@ -190,7 +190,8 @@ class AppCrawlerUtils {
 
         /**
          *  Method to retrieve `TestOutputDetails` of last completed test.
-         *  At test completion report result details can also be retrieved by this method
+         *
+         *  At test completion report result details can also be retrieved by this method.
          *
          *  @return TestOutputDetails of last completed test.
          *
