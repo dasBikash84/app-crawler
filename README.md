@@ -64,7 +64,9 @@ private val okHttpClient: OkHttpClient by lazy {
             .addAppCrawlerNetworkInterceptor()
             .build()
     }
-```
+``` 
+
+Above is the simplest use case of network interceptor. For other interceptor configuration options please visit [here](https://github.com/dasBikash84/app-crawler/blob/master/app_crawler/src/main/java/com/dasBikash/app_crawler/AppCrawlerUtils.kt) and [here](https://github.com/dasBikash84/app-crawler-model/blob/master/app_crawler_model/src/main/java/com/dasBikash/app_crawler_model/RequestMethodFilter.kt).
 
 ### Step-3 : Register test result listner on activity/fragment for [`saved test result location information`](https://github.com/dasBikash84/app-crawler-model/blob/master/app_crawler_model/src/main/java/com/dasBikash/app_crawler_model/TestOutputDetails.kt) update on test completion.
 
