@@ -28,8 +28,8 @@ class AppCrawlerUtils {
          * suspend method to start robo test with a script
          *
          *  @param context Android Context
-         *  @param roboScriptPath Remote/local(Private app storage) script path
-         *  @param maxRunTimeMinutes Maximum test run time in minutes
+         *  @param roboScriptPath `Remote/local(Private app storage)/assets` script path
+         *  @param maxRunTimeMinutes Maximum test run time in minutes (>=30 will be truncated to 30)
          *  @param runOnlyScript whether to run only script or run unscripted robo test
          *                          also at the end of scripted action execution.
          *
@@ -46,8 +46,6 @@ class AppCrawlerUtils {
         ): Boolean = RoboAppCrawlerUtils.startTestWithScript(
             context,
             roboScriptPath,
-            null,
-            null,
             maxRunTimeMinutes,
             runOnlyScript
         )
@@ -56,7 +54,7 @@ class AppCrawlerUtils {
          * suspend method to start unscripted robo test
          *
          *  @param context Android Context
-         *  @param maxRunTimeMinutes Maximum test run time in minutes
+         *  @param maxRunTimeMinutes Maximum test run time in minutes (>=30 will be truncated to 30)
          *
          *  @return true if test starts successfully else returns false
          *
@@ -68,8 +66,6 @@ class AppCrawlerUtils {
             maxRunTimeMinutes: Int = 5
         ): Boolean = RoboAppCrawlerUtils.startAutoTest(
             context,
-            null,
-            null,
             maxRunTimeMinutes
         )
 
@@ -77,8 +73,8 @@ class AppCrawlerUtils {
          *  Starts robo test with a script asynchronously
          *
          *  @param context Android Context
-         *  @param roboScriptPath Romote/local(Private app storage) script path
-         *  @param maxRunTimeMinutes Maximum test run time in minutes
+         *  @param roboScriptPath `Remote/local(Private app storage)/assets` script path
+         *  @param maxRunTimeMinutes Maximum test run time in minutes  (>=30 will be truncated to 30)
          *  @param runOnlyScript whether to run only script or run unscripted robo test
          *                          also at the end of scripted action execution.
          *
@@ -96,8 +92,6 @@ class AppCrawlerUtils {
         ): Task<Boolean> = RoboAppCrawlerUtils.startTestWithScriptAsync(
             context,
             roboScriptPath,
-            null,
-            null,
             maxRunTimeMinutes,
             runOnlyScript
         )
@@ -106,8 +100,7 @@ class AppCrawlerUtils {
          *  Starts unscripted robo test without a script asynchronously
          *
          *  @param context Android Context
-         *  @param runOnlyScript whether to run only script or run unscripted robo test
-         *                          also at the end of scripted action execution.
+         *  @param maxRunTimeMinutes Maximum test run time in minutes  (>=30 will be truncated to 30)
          *
          *  @return Task<Boolean>
          *  [see also](https://github.com/dasBikash84/app-crawler-model/blob/master/app_crawler_model/src/main/java/com/dasBikash/app_crawler_model/Task.kt)
@@ -120,8 +113,6 @@ class AppCrawlerUtils {
             maxRunTimeMinutes: Int = 5
         ): Task<Boolean> = RoboAppCrawlerUtils.startAutoTestAsync(
             context,
-            null,
-            null,
             maxRunTimeMinutes
         )
 
@@ -146,6 +137,8 @@ class AppCrawlerUtils {
          * ```
          * OkHttpClient.Builder().addAppCrawlerNetworkInterceptor(RequestMethodFilter.methodGetPostDeleteFilter())
          * ```
+         *
+         * With `null` RequestMethodFilter no api call will be restricted.
          *
          *  @param requestMethodFilter optional RequestMethodFilter instance to restrict specific api calls
          *  [see also](https://github.com/dasBikash84/app-crawler-model/blob/master/app_crawler_model/src/main/java/com/dasBikash/app_crawler_model/RequestMethodFilter.kt)
