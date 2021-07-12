@@ -226,6 +226,8 @@ class AppCrawlerUtils {
  * OkHttpClient.Builder().addAppCrawlerNetworkInterceptor(RequestMethodFilter.methodGetPostDeleteFilter())
  * ```
  *
+ * With `null` RequestMethodFilter no api call will be restricted.
+ *
  *  @param requestMethodFilter optional RequestMethodFilter instance to restrict specific api calls
  *  [see also](https://github.com/dasBikash84/app-crawler-model/blob/master/app_crawler_model/src/main/java/com/dasBikash/app_crawler_model/RequestMethodFilter.kt)
  *
