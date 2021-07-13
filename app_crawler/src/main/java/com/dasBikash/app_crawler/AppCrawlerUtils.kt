@@ -65,7 +65,6 @@ class AppCrawlerUtils {
          *
          * @author Bikash Das(das.bikash.dev@gmail.com)
         */
-         */
         @JvmStatic
         fun getNetworkTrafficInterceptor()
                 : Interceptor = RoboAppCrawlerUtils.getNetworkTrafficInterceptor()
