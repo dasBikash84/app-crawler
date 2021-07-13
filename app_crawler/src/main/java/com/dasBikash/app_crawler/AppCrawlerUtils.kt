@@ -3,10 +3,10 @@ package com.dasBikash.app_crawler
 import android.content.Context
 import androidx.lifecycle.LifecycleOwner
 import com.dasBikash.app_crawler_core.RoboAppCrawlerUtils
-import com.dasBikash.app_crawler_core.utils.AppCrawlerNetworkInterceptor
 import com.dasBikash.app_crawler_model.RequestMethodFilter
 import com.dasBikash.app_crawler_model.Task
 import com.dasBikash.app_crawler_model.TestOutputDetails
+import com.dasBikash.app_crawler_model.TestSettings
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 
@@ -24,6 +24,17 @@ class AppCrawlerUtils {
 
     companion object {
 
+
+        suspend fun startTest(
+            context: Context,
+            testSettings: TestSettings = TestSettings()
+        ):Boolean = RoboAppCrawlerUtils.startTest(context,testSettings)
+
+        fun startTestAsync(
+            context: Context,
+            testSettings: TestSettings = TestSettings()
+        ): Task<Boolean> = RoboAppCrawlerUtils.startTestAsync(context,testSettings)
+
         /**
          * suspend method to start robo test with a script
          *
@@ -37,7 +48,7 @@ class AppCrawlerUtils {
          *
          * @author Bikash Das(das.bikash.dev@gmail.com)
          */
-        @JvmStatic
+        /*@JvmStatic
         suspend fun startRoboTestWithScript(
             context: Context,
             roboScriptPath: String,
@@ -48,7 +59,7 @@ class AppCrawlerUtils {
             roboScriptPath,
             maxRunTimeMinutes,
             runOnlyScript
-        )
+        )*/
 
         /**
          * suspend method to start unscripted robo test
@@ -60,14 +71,14 @@ class AppCrawlerUtils {
          *
          * @author Bikash Das(das.bikash.dev@gmail.com)
          */
-        @JvmStatic
+        /*@JvmStatic
         suspend fun startAutoRoboTest(
             context: Context,
             maxRunTimeMinutes: Int = 5
         ): Boolean = RoboAppCrawlerUtils.startAutoTest(
             context,
             maxRunTimeMinutes
-        )
+        )*/
 
         /**
          *  Starts robo test with a script asynchronously
@@ -83,7 +94,7 @@ class AppCrawlerUtils {
          *
          * @author Bikash Das(das.bikash.dev@gmail.com)
          */
-        @JvmStatic
+        /*@JvmStatic
         fun startRoboTestWithScriptAsync(
             context: Context,
             roboScriptPath: String,
@@ -94,7 +105,7 @@ class AppCrawlerUtils {
             roboScriptPath,
             maxRunTimeMinutes,
             runOnlyScript
-        )
+        )*/
 
         /**
          *  Starts unscripted robo test without a script asynchronously
@@ -107,14 +118,14 @@ class AppCrawlerUtils {
          *
          * @author Bikash Das(das.bikash.dev@gmail.com)
          */
-        @JvmStatic
+        /*@JvmStatic
         fun startAutoRoboTestAsync(
             context: Context,
             maxRunTimeMinutes: Int = 5
         ): Task<Boolean> = RoboAppCrawlerUtils.startAutoTestAsync(
             context,
             maxRunTimeMinutes
-        )
+        )*/
 
         /**
          *  Get Interceptor instance to attach on `OkkHttpClient.Builder`
@@ -148,10 +159,8 @@ class AppCrawlerUtils {
          * @author Bikash Das(das.bikash.dev@gmail.com)
          */
         @JvmStatic
-        fun getNetworkTrafficInterceptor(requestMethodFilter: RequestMethodFilter? = null)
-                : Interceptor = AppCrawlerNetworkInterceptor
-            .getInstance()
-            .apply { this.requestMethodFilter = requestMethodFilter }
+        fun getNetworkTrafficInterceptor()
+                : Interceptor = RoboAppCrawlerUtils.getNetworkTrafficInterceptor()
 
         /**
          *  Method to register `TestOutputDetails` update listener.
@@ -233,7 +242,4 @@ class AppCrawlerUtils {
  *
  * */
 fun OkHttpClient.Builder.addAppCrawlerNetworkInterceptor(requestMethodFilter: RequestMethodFilter? = null)
-        :OkHttpClient.Builder = addInterceptor(
-    AppCrawlerNetworkInterceptor.getInstance()
-        .apply { this.requestMethodFilter = requestMethodFilter }
-)
+        :OkHttpClient.Builder = addInterceptor(RoboAppCrawlerUtils.getNetworkTrafficInterceptor())
