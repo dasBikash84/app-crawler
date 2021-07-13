@@ -11,9 +11,6 @@ android {
     defaultConfig {
         minSdkVersion 16
         targetSdkVersion 30
-        versionCode 1
-        versionName "1.0"
-
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -33,6 +30,6 @@ android {
 }
 
 dependencies {
-    implementation ('com.github.dasBikash84:app-crawler-core:1.8.1-beta')
-    api ('com.github.dasBikash84:app-crawler-model:1.5-beta')
+    implementation ('com.github.dasBikash84:app-crawler-core:1.8.2-beta')
+    api ('com.github.dasBikash84:app-crawler-model:1.6')
 }
