@@ -33,6 +33,6 @@ android {
 }
 
 dependencies {
-    implementation ('com.github.dasBikash84:app-crawler-core:1.8-beta')
+    implementation ('com.github.dasBikash84:app-crawler-core:1.8.1-beta')
     api ('com.github.dasBikash84:app-crawler-model:1.5-beta')
 }

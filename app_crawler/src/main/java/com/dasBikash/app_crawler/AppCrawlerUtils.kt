@@ -124,5 +124,5 @@ class AppCrawlerUtils {
  * Extension on `OkHttpClient.Builder` to attach `AppCrawlerNetworkInterceptor`.
  *
  * */
-fun OkHttpClient.Builder.addAppCrawlerNetworkInterceptor(requestMethodFilter: RequestMethodFilter? = null)
+fun OkHttpClient.Builder.addAppCrawlerNetworkInterceptor()
         :OkHttpClient.Builder = addInterceptor(RoboAppCrawlerUtils.getNetworkTrafficInterceptor())
