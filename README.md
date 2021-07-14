@@ -96,3 +96,14 @@ AppCrawlerUtils.startAutoRoboTest(context)
 For all test launch options please visit [`here`](https://github.com/dasBikash84/app-crawler/blob/master/app_crawler/src/main/java/com/dasBikash/app_crawler/AppCrawlerUtils.kt)
 
 For more info on integration visit [`here`](https://drive.google.com/drive/folders/1kP6_CXNhVI-QNQ-0u_-NsT23nZlnw6Hz?usp=sharing) 
+
+<br>
+### Using the utility .jar file for joining test scripts:
+
+- [`Download`](https://github.com/dasBikash84/app-crawler/blob/master/add_robo_scripts.jar) the jar.
+- To merge multiple test scripts command format is as below:
+```
+    java -jar add_robo_scripts.jar file1.json file2.json file3.json
+``` 
+If provided files are valid test scripts then the jar will merge the scripts and print saved file path in command line.
+
