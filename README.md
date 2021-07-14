@@ -98,7 +98,8 @@ For all test launch options please visit [`here`](https://github.com/dasBikash84
 For more info on integration visit [`here`](https://drive.google.com/drive/folders/1kP6_CXNhVI-QNQ-0u_-NsT23nZlnw6Hz?usp=sharing) 
 
 <br>
-### Using the utility .jar file for joining test scripts:
+
+### Using the utility `.jar` file for joining test scripts:
 
 - [`Download`](https://github.com/dasBikash84/app-crawler/blob/master/add_robo_scripts.jar) the jar.
 - To merge multiple test scripts command format is as below:
