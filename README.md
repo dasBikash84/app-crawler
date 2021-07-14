@@ -93,4 +93,6 @@ or from inside of any [`Coroutine`](https://kotlinlang.org/docs/coroutines-basic
 AppCrawlerUtils.startAutoRoboTest(context)
 ```
 
-For all test launch options please visit [`here`](https://github.com/dasBikash84/app-crawler/blob/master/app_crawler/src/main/java/com/dasBikash/app_crawler/AppCrawlerUtils.kt):
+For all test launch options please visit [`here`](https://github.com/dasBikash84/app-crawler/blob/master/app_crawler/src/main/java/com/dasBikash/app_crawler/AppCrawlerUtils.kt)
+
+For more info on integration visit [`here`](https://drive.google.com/drive/folders/1kP6_CXNhVI-QNQ-0u_-NsT23nZlnw6Hz?usp=sharing) 
