@@ -5,31 +5,23 @@ plugins {
     id 'org.jetbrains.dokka'
 }
 
+apply from: '../app_crawler.gradle';
+
 android {
-    compileSdkVersion 30
-
-    defaultConfig {
-        minSdkVersion 16
-        targetSdkVersion 30
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-    }
-
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
-    kotlinOptions {
-        jvmTarget = '1.8'
+}
+
+repositories{
+    flatDir{
+        dirs 'libs'
     }
 }
 
 dependencies {
-    implementation ('com.github.dasBikash84:app-crawler-core:2.4-beta')
-    api ('com.github.dasBikash84:app-crawler-model:1.8')
+    implementation(name:'app_crawler_core', ext:'aar')
 }

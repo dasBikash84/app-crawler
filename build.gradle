@@ -1,7 +1,7 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
     ext{
-        kotlin_version = '1.5.0'
+        kotlin_version = '1.5.20'
         dokkaVersion = '0.9.17'
     }
     repositories {
@@ -9,7 +9,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath "com.android.tools.build:gradle:4.2.1"
+        classpath "com.android.tools.build:gradle:4.2.2"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath "org.jetbrains.dokka:dokka-gradle-plugin:$dokkaVersion"
 
@@ -25,7 +25,6 @@ allprojects {
         jcenter() // Warning: this repository is going to shut down soon
         maven {
             url "https://jitpack.io"
-            credentials { username 'jp_os57tjonp3m3n31dpdlvf7bn3'}
         }
     }
 }
