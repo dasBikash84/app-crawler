@@ -29,7 +29,24 @@ android {
     }
 }
 
+repositories{
+    flatDir{
+        dirs 'libs'
+    }
+}
+
 dependencies {
-    implementation ('com.github.dasBikash84:app-crawler-core:2.4.3.1-alpha')
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'androidx.core:core-ktx:1.6.0'
+    implementation 'androidx.appcompat:appcompat:1.3.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.2'
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.0"
+    implementation group: 'com.squareup.okhttp', name: 'okhttp', version: '2.7.5'
+    implementation "androidx.lifecycle:lifecycle-common-java8:2.3.1"
+    implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
+
+//    implementation ('com.github.dasBikash84:app-crawler-core:2.4.3.1-alpha')
+    implementation(name:'app_crawler_core', ext:'aar')
     api ('com.github.dasBikash84:app-crawler-model:1.9')
 }
