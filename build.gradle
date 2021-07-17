@@ -25,7 +25,6 @@ allprojects {
         jcenter() // Warning: this repository is going to shut down soon
         maven {
             url "https://jitpack.io"
-            credentials { username 'jp_os57tjonp3m3n31dpdlvf7bn3'}
         }
     }
 }
