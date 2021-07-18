@@ -47,7 +47,8 @@ allprojects {
 }
 ```
 
-### Latest model library version:   ![](https://jitpack.io/v/dasBikash84/app-crawler-model.svg)
+### Latest model library version:   [![](https://jitpack.io/v/dasBikash84/app-crawler-model.svg)](https://github.com/dasBikash84/app-crawler-model)
+
 
 Then, add below portion in your app module's `build.gradle` file
 
