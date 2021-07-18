@@ -24,8 +24,16 @@
 
 <br>
 
+## Integration steps for an existing app:
 
-## Dependency
+### Step-1 : Download latest releaseed `.aar` and add to your project.
+- Download latest crawler release from 
+[`here`](https://github.com/dasBikash84/app-crawler/tree/master/latestRelease)
+- copy the downloaded `.aar` file inside your app modules `libs` directory.
+
+![image info](https://raw.githubusercontent.com/dasBikash84/app-crawler/master/images/aar-add_location.png)
+
+### Step-2 : Include required dependencies.
 
 Add this in your root `build.gradle` file (**not** your module `build.gradle` file):
 
@@ -38,24 +46,31 @@ allprojects {
     }
 }
 ```
-Latest model library version: 
-![](https://jitpack.io/v/dasBikash84/app-crawler-model.svg)
 
-Then, add model library in your app module `build.gradle`
+### Latest model library version:   ![](https://jitpack.io/v/dasBikash84/app-crawler-model.svg)
+
+Then, add below portion in your app module's `build.gradle` file
+
 ```gradle
+
+repositories{
+    flatDir{
+        dirs 'libs'
+    }
+}
+
 dependencies {
-    implementation 'com.github.dasBikash84:app-crawler:latest-model-lib-version'
+    implementation(name:'aar_file_name_except_extension', ext:'aar')
+    // Example: 
+    // implementation(name:'app_crawler-1.0-beta', ext:'aar')
+    implementation 'com.github.dasBikash84:app-crawler:latest-model-library-version'
+    // Example: 
+    // implementation 'com.github.dasBikash84:app-crawler:1.9'
 }
 ```
-<br>
 
-## Sample integration steps for `Auto Robo test`:
 
-### Step-1 : Include required dependencies.
-
-Add above dependencies in your build.gradle files.
-
-### Step-2 : Add `optional` network activity listener.
+### Step-3 : Add `optional` network activity listener.
 Attach app crawler network interceptor with your `OkHttpClient` object to enable network acctivity logging.
 
 ```
@@ -67,9 +82,9 @@ private val okHttpClient: OkHttpClient by lazy {
     }
 ``` 
 
-Above is the simplest use case of network interceptor. For other interceptor configuration options please visit [here](https://github.com/dasBikash84/app-crawler/blob/master/app_crawler/src/main/java/com/dasBikash/app_crawler/AppCrawlerUtils.kt) and [here](https://github.com/dasBikash84/app-crawler-model/blob/master/app_crawler_model/src/main/java/com/dasBikash/app_crawler_model/RequestMethodFilter.kt).
+For interceptor url filter configuration examples visit [here](https://github.com/dasBikash84/app-crawler-model/blob/master/app_crawler_model/src/main/java/com/dasBikash/app_crawler_model/RequestMethodFilter.kt).
 
-### Step-3 : Register test result listner on activity/fragment for [`saved test result location information`](https://github.com/dasBikash84/app-crawler-model/blob/master/app_crawler_model/src/main/java/com/dasBikash/app_crawler_model/TestOutputDetails.kt) update on test completion.
+### Step-4 : Register `optional` test result listner for [`saved test result location information`](https://github.com/dasBikash84/app-crawler-model/blob/master/app_crawler_model/src/main/java/com/dasBikash/app_crawler_model/TestOutputDetails.kt) update on test completion (add listener(s) at the compent class(s) where your app will land upon test session completion).
 
 
 
@@ -82,19 +97,19 @@ AppCrawlerUtils
         )
 ```
 
-### Step-4 : 
+### Step-5 : Launching test with default configuration
 From any place inside of your app issue test launch instruction:
 
 ```
-AppCrawlerUtils.startAutoRoboTestAsync(context)
+AppCrawlerUtils.startTestAsync(context)
 ```
 or from inside of any [`Coroutine`](https://kotlinlang.org/docs/coroutines-basics.html)
 
 ```
-AppCrawlerUtils.startAutoRoboTest(context)
+AppCrawlerUtils.startTest(context)
 ```
 
-For all test launch options please visit [`here`](https://github.com/dasBikash84/app-crawler/blob/master/app_crawler/src/main/java/com/dasBikash/app_crawler/AppCrawlerUtils.kt)
+For all test launch options please visit [`here`](https://github.com/dasBikash84/app-crawler/blob/master/AppCrawlerUtils_doc.txt)
 
 For more info on integration visit [`here`](https://drive.google.com/drive/folders/1kP6_CXNhVI-QNQ-0u_-NsT23nZlnw6Hz?usp=sharing) 
 
