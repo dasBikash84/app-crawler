@@ -24,7 +24,6 @@
 
 <br>
 
-![](https://jitpack.io/v/dasBikash84/app-crawler.svg)
 
 ## Dependency
 
@@ -39,11 +38,13 @@ allprojects {
     }
 }
 ```
+Latest model library version: 
+![](https://jitpack.io/v/dasBikash84/app-crawler-model.svg)
 
-Then, add the library in your app module `build.gradle`
+Then, add model library in your app module `build.gradle`
 ```gradle
 dependencies {
-    implementation 'com.github.dasBikash84:app-crawler:latest-verion-here'
+    implementation 'com.github.dasBikash84:app-crawler:latest-model-lib-version'
 }
 ```
 <br>
