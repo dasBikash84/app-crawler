@@ -47,4 +47,6 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
 
     implementation(name:'app_crawler_core', ext:'aar')
+
+    implementation ('com.github.dasBikash84:app-crawler-model:1.9')
 }

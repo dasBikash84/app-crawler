@@ -3,9 +3,9 @@ package com.dasBikash.app_crawler
 import android.content.Context
 import androidx.lifecycle.LifecycleOwner
 import com.dasBikash.app_crawler_core.RoboAppCrawlerUtils
-import com.dasBikash.app_crawler_core.model.public.Task
-import com.dasBikash.app_crawler_core.model.public.TestOutputDetails
-import com.dasBikash.app_crawler_core.model.public.TestSettings
+import com.dasBikash.app_crawler_model.Task
+import com.dasBikash.app_crawler_model.TestOutputDetails
+import com.dasBikash.app_crawler_model.TestSettings
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 
@@ -19,9 +19,7 @@ import okhttp3.OkHttpClient
  *
  * @author Bikash Das(das.bikash.dev@gmail.com)
  */
-class AppCrawlerUtils {
-
-    companion object {
+object AppCrawlerUtils {
 
         /**
          * suspend function to launch test
@@ -64,7 +62,6 @@ class AppCrawlerUtils {
          *
          * @author Bikash Das(das.bikash.dev@gmail.com)
         */
-        @JvmStatic
         fun getNetworkTrafficInterceptor()
                 : Interceptor = RoboAppCrawlerUtils.getNetworkTrafficInterceptor()
 
@@ -84,7 +81,6 @@ class AppCrawlerUtils {
          *
          * @author Bikash Das(das.bikash.dev@gmail.com)
          */
-        @JvmStatic
         fun addRoboTestResultListener(
             context: Context,
             lifecycleOwner: LifecycleOwner,
@@ -105,7 +101,6 @@ class AppCrawlerUtils {
          *
          * @author Bikash Das(das.bikash.dev@gmail.com)
          */
-        @JvmStatic
         fun getLastTestResultDetails(): TestOutputDetails? =
             RoboAppCrawlerUtils.getLastTestResultDetails()
 
@@ -114,9 +109,7 @@ class AppCrawlerUtils {
          *
          * @return true if test is running else false
          * */
-        @JvmStatic
         fun isTestRunning(): Boolean = RoboAppCrawlerUtils.isTestRunning()
-    }
 }
 
 /**
