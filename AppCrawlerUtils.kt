@@ -97,6 +97,7 @@ object AppCrawlerUtils {
          * @return true if test is running else false
          * */
         fun isTestRunning(): Boolean
+}
 
 
 /**
