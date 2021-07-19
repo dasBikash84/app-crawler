@@ -110,7 +110,7 @@ or from inside of any [`Coroutine`](https://kotlinlang.org/docs/coroutines-basic
 AppCrawlerUtils.startTest(context)
 ```
 
-For all test launch options please visit [`here`](https://github.com/dasBikash84/app-crawler/blob/master/AppCrawlerUtils_doc.txt)
+For all test launch options please visit [`here`](https://github.com/dasBikash84/app-crawler/blob/master/AppCrawlerPublicInterface.kt)
 
 
 ## Video demos:

@@ -3,7 +3,7 @@
  * ```
  * Main public AppCrawlerPublicInterface to communicate with the `App crawler` module.
  * External classes will have to use the implementation of this interface namely
- * `AppCrawlerUtils`, get access to interceptor, get report location details etc...
+ * `AppCrawlerUtils`, to get access to the network interceptor, get report location details etc...
  *
  * ```
  *
