@@ -1,3 +1,4 @@
+
 /**
  * ```
  * Main public class to interface with the `App crawler` module.
@@ -17,14 +18,17 @@ object AppCrawlerUtils {
          * @param testSettings object to provide test settings during test launch
          * @see https://github.com/dasBikash84/app-crawler-model/blob/master/app_crawler_model/src/main/java/com/dasBikash/app_crawler_model/TestSettings.kt
          *
-         * @return true for test launch success
+         * @return TestRequestResult according to test launch status
+         *
+         * @see (https://github.com/dasBikash84/app-crawler-model/blob/master/app_crawler_model/src/main/java/com/dasBikash/app_crawler_model/TestRequestResult.kt)
+         *
          * @author Bikash Das(das.bikash.dev@gmail.com)
          *
          * */
         suspend fun startTest(
             context: Context,
-            testSettings: TestSettings = TestSettings()
-        ): Boolean
+            testSettings: TestSettings = TestSettings(testScriptPaths = null)
+        ): TestRequestResult
 
         /**
          * async function to launch test
@@ -33,15 +37,17 @@ object AppCrawlerUtils {
          * @param testSettings object to provide test settings during test launch
          * @see https://github.com/dasBikash84/app-crawler-model/blob/master/app_crawler_model/src/main/java/com/dasBikash/app_crawler_model/TestSettings.kt
          *
-         *  @return Task<Boolean>
-         *  [see also](https://github.com/dasBikash84/app-crawler-model/blob/master/app_crawler_model/src/main/java/com/dasBikash/app_crawler_model/Task.kt)
+         *  @return Task<TestRequestResult>  according to test launch status
          *
-         * @author Bikash Das(das.bikash.dev@gmail.com)
+         *  @see (https://github.com/dasBikash84/app-crawler-model/blob/master/app_crawler_model/src/main/java/com/dasBikash/app_crawler_model/Task.kt)
+         *  @see (https://github.com/dasBikash84/app-crawler-model/blob/master/app_crawler_model/src/main/java/com/dasBikash/app_crawler_model/TestRequestResult.kt)
+         *
+         *  @author Bikash Das(das.bikash.dev@gmail.com)
          * */
         fun startTestAsync(
             context: Context,
-            testSettings: TestSettings = TestSettings()
-        ): Task<Boolean>
+            testSettings: TestSettings = TestSettings(testScriptPaths = null)
+        ): Task<TestRequestResult>
 
         /**
          *  Get Interceptor instance to attach on `OkkHttpClient.Builder`
@@ -91,11 +97,11 @@ object AppCrawlerUtils {
          * @return true if test is running else false
          * */
         fun isTestRunning(): Boolean
-}
 
 
 /**
  * Extension on `OkHttpClient.Builder` to attach `AppCrawlerNetworkInterceptor`.
  *
  * */
+@Keep
 fun OkHttpClient.Builder.addAppCrawlerNetworkInterceptor() : OkHttpClient.Builder
