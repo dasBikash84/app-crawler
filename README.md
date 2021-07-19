@@ -112,16 +112,11 @@ AppCrawlerUtils.startTest(context)
 
 For all test launch options please visit [`here`](https://github.com/dasBikash84/app-crawler/blob/master/AppCrawlerUtils_doc.txt)
 
-For more info on integration visit [`here`](https://drive.google.com/drive/folders/1kP6_CXNhVI-QNQ-0u_-NsT23nZlnw6Hz?usp=sharing) 
 
-<br>
+## Video demos:
 
-### Using the utility `.jar` file for joining test scripts:
+### Integration demo on `Hacker news` app.
 
-- [`Download`](https://github.com/dasBikash84/app-crawler/blob/master/add_robo_scripts.jar) the jar.
-- To merge multiple test scripts command format is as below:
-```
-    java -jar add_robo_scripts.jar file1.json file2.json file3.json
-``` 
-If provided files are valid test scripts then the jar will merge the scripts and print saved file path in command line.
-
+- Demo video : [`here`](https://www.youtube.com/watch?v=MF28Phrbb04)
+- Hacker news demo app repository: [`here`](https://github.com/dasBikash84/hn-and-demo/tree/crawler_integration)
+- Generated test report files: [`here`](https://github.com/dasBikash84/app-crawler/blob/master/testReportsOfDemoSessions/hackerNewsIntegrationDemo.zip)
