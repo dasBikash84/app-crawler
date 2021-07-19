@@ -6,8 +6,9 @@
 
 ## Main Features:
 
-- Running supervised local tests with [`Firebase Robo test scripts`](https://firebase.google.com/docs/test-lab/android/robo-ux-test).
-- Running un-superviced auto robo tests.
+- Supervised local tests with [`Firebase Robo test scripts`](https://firebase.google.com/docs/test-lab/android/robo-ux-test). For scipted tests it supports both [`single/multiple`](https://github.com/dasBikash84/app-crawler-model/blob/master/app_crawler_model/src/main/java/com/dasBikash/app_crawler_model/TestSettings.kt) test scripts.
+- Support for remote/local test scripts.
+- Un-superviced auto robo tests.
 - Detailed network activity logging during tests.
 - Customizable api request filter to ensure restricted network activity.
 - Comprehensive test report containing:
@@ -19,7 +20,6 @@
     3) Generated `logcat` during robo test.
 
     4) Screen-shots of test journey screens.
-- Support for remote/local test scripts.
 - Very simple integration interface.
 
 <br>
@@ -61,12 +61,12 @@ repositories{
 }
 
 dependencies {
+
     implementation(name:'aar_file_name_except_extension', ext:'aar')
-    // Example: 
-    // implementation(name:'app_crawler-1.0-beta', ext:'aar')
-    implementation 'com.github.dasBikash84:app-crawler:latest-model-library-version'
-    // Example: 
-    // implementation 'com.github.dasBikash84:app-crawler:1.9'
+    // Example: implementation(name:'app_crawler-1.1-beta', ext:'aar')
+
+    implementation 'com.github.dasBikash84:app-crawler-model:latest-model-library-version'
+    // Example: implementation 'com.github.dasBikash84:app-crawler-model:2.0'
 }
 ```
 
