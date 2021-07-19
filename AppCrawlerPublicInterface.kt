@@ -1,15 +1,15 @@
 
 /**
  * ```
- * Main public class to interface with the `App crawler` module.
- * External classes will have to use the static methods
- * of this class to start test, get access to interceptor,
- * get report location details etc...
+ * Main public AppCrawlerPublicInterface to communicate with the `App crawler` module.
+ * External classes will have to use the implementation of this interface namely
+ * `AppCrawlerUtils`, get access to interceptor, get report location details etc...
+ *
  * ```
  *
  * @author Bikash Das(das.bikash.dev@gmail.com)
  */
-object AppCrawlerUtils {
+interface AppCrawlerPublicInterface {
 
         /**
          * suspend function to launch test
