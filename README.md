@@ -6,7 +6,7 @@
 
 ## Main Features:
 
-- Supervised local tests with [`Firebase Robo test scripts`](https://firebase.google.com/docs/test-lab/android/robo-ux-test). For scipted tests it supports both [`single/multiple`](https://github.com/dasBikash84/app-crawler-model/blob/master/app_crawler_model/src/main/java/com/dasBikash/app_crawler_model/TestSettings.kt) test scripts.
+- Supervised local tests with [`Firebase Robo test scripts`](https://firebase.google.com/docs/test-lab/android/robo-ux-test). For scripted tests it supports both [`single/multiple`](https://github.com/dasBikash84/app-crawler-model/blob/master/app_crawler_model/src/main/java/com/dasBikash/app_crawler_model/TestSettings.kt) test scripts.
 - Support for remote/local test scripts.
 - Un-superviced auto robo tests.
 - Detailed network activity logging during tests.
