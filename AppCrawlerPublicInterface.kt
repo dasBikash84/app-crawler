@@ -27,7 +27,7 @@ interface AppCrawlerPublicInterface {
          * */
         suspend fun startTest(
             context: Context,
-            testSettings: TestSettings = TestSettings(testScriptPaths = null)
+            testSettings: TestSettings = TestSettings()
         ): TestRequestResult
 
         /**
@@ -46,7 +46,7 @@ interface AppCrawlerPublicInterface {
          * */
         fun startTestAsync(
             context: Context,
-            testSettings: TestSettings = TestSettings(testScriptPaths = null)
+            testSettings: TestSettings = TestSettings()
         ): Task<TestRequestResult>
 
         /**
