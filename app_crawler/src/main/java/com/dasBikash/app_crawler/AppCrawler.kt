@@ -2,9 +2,9 @@ package com.dasBikash.app_crawler
 
 import android.content.Context
 import androidx.lifecycle.LifecycleOwner
-import com.dasBikash.app_crawler_core.RoboAppCrawlerUtils
 import com.dasBikash.app_crawler_model.Task
 import com.dasBikash.app_crawler_model.TestOutputDetails
+import com.dasBikash.app_crawler_model.TestRequestResult
 import com.dasBikash.app_crawler_model.TestSettings
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -19,7 +19,7 @@ import okhttp3.OkHttpClient
  *
  * @author Bikash Das(das.bikash.dev@gmail.com)
  */
-object AppCrawlerUtils {
+object AppCrawler {
 
         /**
          * suspend function to launch test
@@ -35,7 +35,7 @@ object AppCrawlerUtils {
         suspend fun startTest(
             context: Context,
             testSettings: TestSettings = TestSettings()
-        ):Boolean = RoboAppCrawlerUtils.startTest(context,testSettings)
+        ):TestRequestResult = AppCrawlerUtils.startTest(context,testSettings)
 
         /**
          * async function to launch test
@@ -53,7 +53,7 @@ object AppCrawlerUtils {
         fun startTestAsync(
             context: Context,
             testSettings: TestSettings = TestSettings()
-        ): Task<Boolean> = RoboAppCrawlerUtils.startTestAsync(context,testSettings)
+        ): Task<TestRequestResult> = AppCrawlerUtils.startTestAsync(context,testSettings)
 
         /**
          *  Get Interceptor instance to attach on `OkkHttpClient.Builder`
@@ -63,7 +63,7 @@ object AppCrawlerUtils {
          * @author Bikash Das(das.bikash.dev@gmail.com)
         */
         fun getNetworkTrafficInterceptor()
-                : Interceptor = RoboAppCrawlerUtils.getNetworkTrafficInterceptor()
+                : Interceptor = AppCrawlerUtils.getNetworkTrafficInterceptor()
 
         /**
          *  Method to register `TestOutputDetails` update listener.
@@ -85,7 +85,7 @@ object AppCrawlerUtils {
             context: Context,
             lifecycleOwner: LifecycleOwner,
             handleTestResults: (TestOutputDetails) -> Any?
-        ) = RoboAppCrawlerUtils.addRoboTestResultListener(
+        ) = AppCrawlerUtils.addRoboTestResultListener(
             context,
             lifecycleOwner,
             handleTestResults
@@ -102,19 +102,19 @@ object AppCrawlerUtils {
          * @author Bikash Das(das.bikash.dev@gmail.com)
          */
         fun getLastTestResultDetails(): TestOutputDetails? =
-            RoboAppCrawlerUtils.getLastTestResultDetails()
+            AppCrawlerUtils.getLastTestResultDetails()
 
         /**
          * Method to manually poll whether test is running currently or not
          *
          * @return true if test is running else false
          * */
-        fun isTestRunning(): Boolean = RoboAppCrawlerUtils.isTestRunning()
+        fun isTestRunning(): Boolean = AppCrawlerUtils.isTestRunning()
 }
 
 /**
  * Extension on `OkHttpClient.Builder` to attach `AppCrawlerNetworkInterceptor`.
  *
  * */
-fun OkHttpClient.Builder.addAppCrawlerNetworkInterceptor()
-        :OkHttpClient.Builder = addInterceptor(RoboAppCrawlerUtils.getNetworkTrafficInterceptor())
+fun OkHttpClient.Builder.addCrawlerNetworkInterceptor()
+        :OkHttpClient.Builder = addInterceptor(AppCrawlerUtils.getNetworkTrafficInterceptor())

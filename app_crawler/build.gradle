@@ -27,6 +27,11 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
+    dexOptions {
+        incremental = true;
+        preDexLibraries = false
+    }
 }
 
 repositories{
@@ -37,16 +42,31 @@ repositories{
 
 dependencies {
 
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation 'androidx.core:core-ktx:1.6.0'
     implementation 'androidx.appcompat:appcompat:1.3.0'
-    implementation 'com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.2'
+    implementation 'com.google.android.material:material:1.4.0'
+
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.0"
-    implementation group: 'com.squareup.okhttp', name: 'okhttp', version: '2.7.5'
+    implementation "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
+    implementation "androidx.collection:collection-ktx:1.1.0"
+
     implementation "androidx.lifecycle:lifecycle-common-java8:2.3.1"
     implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
 
-    implementation(name:'app_crawler_core', ext:'aar')
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
-    implementation ('com.github.dasBikash84:app-crawler-model:1.9')
+
+    implementation "com.google.code.gson:gson:2.8.7"
+    implementation 'com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.2'
+    implementation 'com.squareup.okhttp:okhttp:2.7.5'
+
+    //logger
+    implementation 'com.orhanobut:logger:2.2.0'
+
+
+    implementation(name:'app_crawler-1.3-alpha', ext:'aar')
+
+    api ('com.github.dasBikash84:app-crawler-model:2.2')
 }
